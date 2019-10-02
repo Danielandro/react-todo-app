@@ -2,9 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function TodoItem(props) {
+  const getStyle = () => {
+    return {
+      backgroundColor: '#f4f4f4',
+      paddingBottom: '10px',
+      borderBottom: '5px #ddd solid',
+      textDecoration: props.todo.completed ? 'line-through' : 'none'
+    }
+  }
+
   return (
     <div>
-      <p>{props.todo.title}</p>
+      <p style={getStyle()}>{props.todo.title}</p>
     </div>
   )
 }
