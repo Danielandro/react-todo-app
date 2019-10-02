@@ -26,8 +26,7 @@ function App() {
   return (
     <div className="App">
       <h1>Welcome To React</h1>
-      <Todos />
-      <ul>{todos.map((todo) => <li>{todo.title}</li>)}</ul>
+      <Todos todos={todos} />
     </div>
   );
 }
