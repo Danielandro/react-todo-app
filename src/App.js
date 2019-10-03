@@ -3,6 +3,7 @@ import Todos from './components/Todos';
 import './App.css';
 
 function App() {
+  // Use hooks to set state
   const [todos, setTodos] = useState([
     {
       id: 1,
@@ -21,22 +22,27 @@ function App() {
     }
   ])
 
-
+  // Toggle Complete
   const toggleComplete = (id) => {
-    const newTodos = todos.map((todo) => {
-      if (todo.id === id) {
-        todo.completed = !todo.completed
-      }
-      return todo;
-    })
+    setTodos(
+      todos.map((todo) => {
+        if (todo.id === id) {
+          todo.completed = !todo.completed
+        }
+        return todo;
+      })
+    )
+  }
 
-    setTodos(newTodos);
+  // Delete Todo
+  const removeTodo = (id) => {
+    setTodos([...todos.filter((todo) => todo.id !== id)])
   }
 
   return (
     <div className="App">
       <h1>Welcome To React</h1>
-      <Todos todos={todos} toggleComplete={toggleComplete} />
+      <Todos todos={todos} toggleComplete={toggleComplete} removeTodo={removeTodo} />
     </div>
   );
 }

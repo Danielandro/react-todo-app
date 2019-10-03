@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function TodoItem({ todo, toggleComplete }) {
+function TodoItem({ todo, toggleComplete, removeTodo }) {
   const getStyle = () => {
     return {
       backgroundColor: '#f4f4f4',
@@ -16,6 +16,8 @@ function TodoItem({ todo, toggleComplete }) {
       <p style={getStyle()}>
         <input type="checkbox" onChange={() => toggleComplete(todo.id)} />{' '}
         {todo.title}
+
+        <button style={btnStyle} onClick={() => removeTodo(todo.id)}>x</button>
       </p>
     </div>
   )
@@ -25,4 +27,15 @@ TodoItem.propTypes = {
   todo: PropTypes.object.isRequired
 }
 
+const btnStyle = {
+  background: '#fff0000',
+  color: '#000',
+  border: '2px #000 solid',
+  borderRadius: '50%',
+  padding: '5px 9px',
+  cursor: 'pointer',
+  float: 'right',
+  fontWeight: 'bold',
+  marginRight: '10px'
+}
 export default TodoItem;
