@@ -21,7 +21,8 @@ function App() {
     }
   ])
 
-  const markComplete = (id) => {
+
+  const toggleComplete = (id) => {
     const newTodos = todos.map((todo) => {
       if (todo.id === id) {
         todo.completed = !todo.completed
@@ -35,7 +36,7 @@ function App() {
   return (
     <div className="App">
       <h1>Welcome To React</h1>
-      <Todos todos={todos} markComplete={markComplete} />
+      <Todos todos={todos} toggleComplete={toggleComplete} />
     </div>
   );
 }
