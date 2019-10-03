@@ -8,7 +8,7 @@ function Todos(props) {
       <h2>Todos</h2>
       <ul>
         {props.todos.map((todo) => (
-          < TodoItem key={todo.id} todo={todo} />
+          < TodoItem key={todo.id} todo={todo} markComplete={props.markComplete} />
         )
         )}
       </ul>

@@ -3,7 +3,7 @@ import Todos from './components/Todos';
 import './App.css';
 
 function App() {
-  const DefaultTodos = [
+  const [todos, setTodos] = useState([
     {
       id: 1,
       title: 'Complete homework',
@@ -19,14 +19,23 @@ function App() {
       title: 'Walked to the farm',
       completed: false
     }
-  ]
+  ])
 
-  const [todos] = useState(DefaultTodos)
+  const markComplete = (id) => {
+    const newTodos = todos.map((todo) => {
+      if (todo.id === id) {
+        todo.completed = !todo.completed
+      }
+      return todo;
+    })
+
+    setTodos(newTodos);
+  }
 
   return (
     <div className="App">
       <h1>Welcome To React</h1>
-      <Todos todos={todos} />
+      <Todos todos={todos} markComplete={markComplete} />
     </div>
   );
 }
