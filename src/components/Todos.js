@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import TodoItem from './TodoItem';
 
-function Todos(props) {
+function Todos({ todos, toggleComplete }) {
   return (
     <div>
       <h2>Todos</h2>
       <ul>
-        {props.todos.map((todo) => (
-          < TodoItem key={todo.id} todo={todo} toggleComplete={props.toggleComplete} />
+        {todos.map((todo) => (
+          < TodoItem key={todo.id} todo={todo} toggleComplete={toggleComplete} />
         )
         )}
       </ul>
