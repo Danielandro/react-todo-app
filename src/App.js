@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Todos from './components/Todos';
+import Header from './components/layouts/Header'
 import './App.css';
 
 function App() {
@@ -41,8 +42,12 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Welcome To React</h1>
-      <Todos todos={todos} toggleComplete={toggleComplete} removeTodo={removeTodo} />
+      <Header />
+      <Todos
+        todos={todos}
+        toggleComplete={toggleComplete}
+        removeTodo={removeTodo}
+      />
     </div>
   );
 }

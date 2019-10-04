@@ -5,7 +5,7 @@ import TodoItem from './TodoItem';
 function Todos({ todos, toggleComplete, removeTodo }) {
   return (
     <div>
-      <h2>Todos</h2>
+
       <ul>
         {todos.map((todo) => (
           < TodoItem key={todo.id} todo={todo} toggleComplete={toggleComplete} removeTodo={removeTodo} />

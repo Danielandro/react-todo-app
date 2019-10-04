@@ -5,7 +5,7 @@ function TodoItem({ todo, toggleComplete, removeTodo }) {
   const getStyle = () => {
     return {
       backgroundColor: '#f4f4f4',
-      paddingBottom: '10px',
+      padding: '20px',
       borderBottom: '5px #ddd solid',
       textDecoration: todo.completed ? 'line-through' : 'none'
     }
