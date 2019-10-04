@@ -41,11 +41,22 @@ function App() {
     setTodos([...todos.filter((todo) => todo.id !== id)])
   }
 
+  // Add Todo
+  const addTodo = (title) => {
+    const newTodo = {
+      id: 4,
+      title,
+      completed: false
+    }
+
+    setTodos([...todos, newTodo])
+  }
+
   return (
     <div className="App">
       <div className="container">
         <Header />
-        <AddTodo />
+        <AddTodo addTodo={addTodo} />
         <Todos
           todos={todos}
           toggleComplete={toggleComplete}
