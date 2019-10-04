@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import uuidv4 from 'uuid/v4'; // generate unique IDs
 import Header from './components/layouts/Header'
 import Todos from './components/Todos';
 import AddTodo from './components/AddTodo'
@@ -8,17 +9,17 @@ function App() {
   // Use hooks to set state
   const [todos, setTodos] = useState([
     {
-      id: 1,
+      id: uuidv4(),
       title: 'Complete homework',
       completed: false
     },
     {
-      id: 2,
+      id: uuidv4(),
       title: 'Lived a life',
       completed: false
     },
     {
-      id: 3,
+      id: uuidv4(),
       title: 'Walked to the farm',
       completed: false
     }
@@ -44,7 +45,7 @@ function App() {
   // Add Todo
   const addTodo = (title) => {
     const newTodo = {
-      id: 4,
+      id: uuidv4(),
       title,
       completed: false
     }
