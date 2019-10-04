@@ -8,9 +8,13 @@ function Todos({ todos, toggleComplete, removeTodo }) {
 
       <ul>
         {todos.map((todo) => (
-          < TodoItem key={todo.id} todo={todo} toggleComplete={toggleComplete} removeTodo={removeTodo} />
-        )
-        )}
+          <TodoItem
+            key={todo.id}
+            todo={todo}
+            toggleComplete={toggleComplete}
+            removeTodo={removeTodo}
+          />
+        ))}
       </ul>
 
     </div>

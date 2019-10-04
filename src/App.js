@@ -43,13 +43,15 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
-      <AddTodo />
-      <Todos
-        todos={todos}
-        toggleComplete={toggleComplete}
-        removeTodo={removeTodo}
-      />
+      <div className="container">
+        <Header />
+        <AddTodo />
+        <Todos
+          todos={todos}
+          toggleComplete={toggleComplete}
+          removeTodo={removeTodo}
+        />
+      </div>
     </div>
   );
 }

@@ -14,10 +14,16 @@ function TodoItem({ todo, toggleComplete, removeTodo }) {
   return (
     <div>
       <p style={getStyle()}>
-        <input type="checkbox" onChange={() => toggleComplete(todo.id)} />{' '}
-        {todo.title}
-
-        <button style={btnStyle} onClick={() => removeTodo(todo.id)}>x</button>
+        <input
+          type="checkbox"
+          onChange={() => toggleComplete(todo.id)}
+        />
+        {' '}{todo.title}
+        <button
+          style={btnStyle}
+          onClick={() => removeTodo(todo.id)}>
+          x
+        </button>
       </p>
     </div>
   )
@@ -38,4 +44,5 @@ const btnStyle = {
   fontWeight: 'bold',
   marginRight: '10px'
 }
+
 export default TodoItem;
