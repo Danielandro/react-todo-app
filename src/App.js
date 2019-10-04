@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import Todos from './components/Todos';
 import Header from './components/layouts/Header'
+import Todos from './components/Todos';
+import AddTodo from './components/AddTodo'
 import './App.css';
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
   return (
     <div className="App">
       <Header />
+      <AddTodo />
       <Todos
         todos={todos}
         toggleComplete={toggleComplete}
