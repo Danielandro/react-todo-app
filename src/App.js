@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import uuidv4 from 'uuid/v4'; // generate unique IDs
-import Header from './components/layouts/Header'
+import Header from './components/layouts/Header';
+import About from './components/pages/About';
 import Todos from './components/Todos';
-import AddTodo from './components/AddTodo'
+import AddTodo from './components/AddTodo';
 import './App.css';
 
 function App() {
@@ -60,7 +61,7 @@ function App() {
         <div className="container">
           <Header />
           <Route
-            path="/"
+            exact path="/"
             render={props => (
               <>
                 <AddTodo addTodo={addTodo} />
@@ -72,7 +73,10 @@ function App() {
               </>
             )}
           />
-
+          <Route
+            path="/about"
+            component={About}
+          />
         </div>
       </div>
     </Router>
