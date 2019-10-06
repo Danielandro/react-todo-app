@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import uuidv4 from 'uuid/v4'; // generate unique IDs
 import Header from './components/layouts/Header'
 import Todos from './components/Todos';
@@ -54,17 +55,27 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <div className="container">
-        <Header />
-        <AddTodo addTodo={addTodo} />
-        <Todos
-          todos={todos}
-          toggleComplete={toggleComplete}
-          removeTodo={removeTodo}
-        />
+    <Router>
+      <div className="App">
+        <div className="container">
+          <Header />
+          <Route
+            path="/"
+            render={props => (
+              <>
+                <AddTodo addTodo={addTodo} />
+                <Todos
+                  todos={todos}
+                  toggleComplete={toggleComplete}
+                  removeTodo={removeTodo}
+                />
+              </>
+            )}
+          />
+
+        </div>
       </div>
-    </div>
+    </Router>
   );
 }
 
