@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import uuidv4 from 'uuid/v4'; // generate unique IDs
 import Header from './components/layouts/Header';
@@ -9,23 +9,13 @@ import './App.css';
 
 function App() {
   // Use hooks to set state
-  const [todos, setTodos] = useState([
-    {
-      id: uuidv4(),
-      title: 'Complete homework',
-      completed: false
-    },
-    {
-      id: uuidv4(),
-      title: 'Lived a life',
-      completed: false
-    },
-    {
-      id: uuidv4(),
-      title: 'Walked to the farm',
-      completed: false
-    }
-  ])
+  const [todos, setTodos] = useState([])
+
+  useEffect(() => {
+    fetch('http://jsonplaceholder.typicode.com/todos?_limit=10')
+      .then(res => res.json())
+      .then(data => setTodos(data))
+  }, [])
 
   // Toggle Complete
   const toggleComplete = (id) => {
