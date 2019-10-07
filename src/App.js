@@ -13,10 +13,14 @@ function App() {
 
   // fetch todos on componentDidMount
   useEffect(() => {
-    fetch('http://jsonplaceholder.typicode.com/todos?_limit=10')
-      .then(res => res.json())
-      .then(data => setTodos(data))
-  }, [])
+    async function fetchTodos() {
+      await fetch('http://jsonplaceholder.typicode.com/todos?_limit=10')
+        .then(res => res.json())
+        .then(data => setTodos(data))
+    }
+    fetchTodos()
+
+  }, [setTodos])
 
   // Toggle Complete
   const toggleComplete = (id) => {
@@ -32,7 +36,10 @@ function App() {
 
   // Delete Todo
   const removeTodo = (id) => {
-    setTodos([...todos.filter((todo) => todo.id !== id)])
+    fetch(`http://jsonplaceholder.typicode.com/todos/${id}`, {
+      method: 'DELETE'
+    })
+      .then(response => setTodos([...todos.filter((todo) => todo.id !== id)]))
   }
 
 
