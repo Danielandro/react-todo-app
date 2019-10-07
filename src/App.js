@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import uuidv4 from 'uuid/v4'; // generate unique IDs
+// import uuidv4 from 'uuid/v4'; // generate unique IDs
 import Header from './components/layouts/Header';
 import About from './components/pages/About';
 import Todos from './components/Todos';
@@ -11,6 +11,7 @@ function App() {
   // Use hooks to set state
   const [todos, setTodos] = useState([])
 
+  // fetch todos on componentDidMount
   useEffect(() => {
     fetch('http://jsonplaceholder.typicode.com/todos?_limit=10')
       .then(res => res.json())
@@ -34,15 +35,23 @@ function App() {
     setTodos([...todos.filter((todo) => todo.id !== id)])
   }
 
+
   // Add Todo
   const addTodo = (title) => {
-    const newTodo = {
-      id: uuidv4(),
-      title,
-      completed: false
-    }
-
-    setTodos([...todos, newTodo])
+    fetch('http://jsonplaceholder.typicode.com/todos', {
+      method: 'POST',
+      body: JSON.stringify({
+        title,
+        completed: false
+      }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8"
+      }
+    })
+      .then(response => response.json())
+      .then(newTodo => {
+        setTodos([...todos, newTodo])
+      })
   }
 
   return (
