@@ -22,7 +22,9 @@ function Todos({ todos, toggleComplete, removeTodo }) {
 }
 
 Todos.propTypes = {
-  todos: PropTypes.array.isRequired
+  todos: PropTypes.array.isRequired,
+  toggleComplete: PropTypes.func.isRequired,
+  removeTodo: PropTypes.func.isRequired
 }
 
 export default Todos;
