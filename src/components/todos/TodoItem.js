@@ -11,6 +11,20 @@ function TodoItem({ todo, toggleComplete, removeTodo }) {
     }
   }
 
+  const btnStyle = () => {
+    return {
+      background: '#ffcccc',
+      color: '#000',
+      border: '2px #000 solid',
+      borderRadius: '50%',
+      padding: '5px 9px',
+      cursor: 'pointer',
+      float: 'right',
+      fontWeight: 'bold',
+      marginRight: '10px'
+    }
+  }
+
   return (
     <div>
       <p style={getStyle()}>
@@ -20,7 +34,7 @@ function TodoItem({ todo, toggleComplete, removeTodo }) {
         />
         {' '}{todo.title}
         <button
-          style={btnStyle}
+          style={btnStyle()}
           onClick={() => removeTodo(todo.id)}>
           x
         </button>
@@ -33,18 +47,6 @@ TodoItem.propTypes = {
   todo: PropTypes.object.isRequired,
   toggleComplete: PropTypes.func.isRequired,
   removeTodo: PropTypes.func.isRequired
-}
-
-const btnStyle = {
-  background: '#ffcccc',
-  color: '#000',
-  border: '2px #000 solid',
-  borderRadius: '50%',
-  padding: '5px 9px',
-  cursor: 'pointer',
-  float: 'right',
-  fontWeight: 'bold',
-  marginRight: '10px'
 }
 
 export default TodoItem;
