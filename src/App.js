@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 // import uuidv4 from 'uuid/v4'; // generate unique IDs
 import Header from './components/layouts/Header';
 import About from './components/pages/About';
-import Todos from './components/Todos';
-import AddTodo from './components/AddTodo';
+import Todos from './components/todos/Todos';
+import AddTodo from './components/todos/AddTodo';
 import './App.css';
 
 function App() {
