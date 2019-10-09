@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import Todos from './Todos'; // component under test
-import TodoItem from './TodoItem';
+// import TodoItem from './TodoItem';
 
 function shallowSetup() {
   const props = {
@@ -36,11 +36,5 @@ describe('Todos', () => {
     const todoList = enzymeWrapper.find('ul');
 
     expect(todoList.children()).toHaveLength(props.todos.length);
-
-    // const firstTodo = todoList.childAt(0);
-    // console.log(firstTodo.type());
-
   })
-
-
 });
