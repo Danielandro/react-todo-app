@@ -22,8 +22,9 @@ function shallowSetup() {
 }
 
 describe('TodoItem', () => {
+  const { enzymeWrapper, props } = shallowSetup();
+
   it('renders todo based on passed values', () => {
-    const { enzymeWrapper, props } = shallowSetup();
     const todo = enzymeWrapper.find('p');
     const checkbox = todo.find('input[type="checkbox"]')
     const deleteButton = todo.find('button');
@@ -34,7 +35,6 @@ describe('TodoItem', () => {
   })
 
   it('calls "removeTodo" when deleted', () => {
-    const { enzymeWrapper, props } = shallowSetup();
     const deleteButton = enzymeWrapper.find('button');
     deleteButton.simulate('click');
 
@@ -42,7 +42,6 @@ describe('TodoItem', () => {
   })
 
   it('calls "toggleCompleted" when status changes', () => {
-    const { enzymeWrapper, props } = shallowSetup();
     const checkbox = enzymeWrapper.find('input[type="checkbox"]');
     checkbox.simulate('change');
 
