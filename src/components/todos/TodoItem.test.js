@@ -9,7 +9,7 @@ function shallowSetup() {
       title: 'Todo 1',
       completed: false
     },
-    toggleComplete: jest.fn(),
+    toggleTodoComplete: jest.fn(),
     removeTodo: jest.fn()
   }
 
@@ -33,11 +33,19 @@ describe('TodoItem', () => {
     expect(deleteButton.length).toBe(1);
   })
 
-  it('calls removeTodo when deleted', () => {
+  it('calls "removeTodo" when deleted', () => {
     const { enzymeWrapper, props } = shallowSetup();
     const deleteButton = enzymeWrapper.find('button');
     deleteButton.simulate('click');
 
     expect(props.removeTodo).toHaveBeenCalledWith(props.todo.id);
+  })
+
+  it('calls "toggleCompleted" when status changes', () => {
+    const { enzymeWrapper, props } = shallowSetup();
+    const checkbox = enzymeWrapper.find('input[type="checkbox"]');
+    checkbox.simulate('change');
+
+    expect(props.toggleTodoComplete).toHaveBeenCalledWith(props.todo.id);
   })
 })

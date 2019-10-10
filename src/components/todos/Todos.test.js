@@ -17,7 +17,7 @@ function shallowSetup() {
         completed: false
       }
     ],
-    toggleComplete: jest.fn(),
+    toggleTodoComplete: jest.fn(),
     removeTodo: jest.fn()
   }
 
