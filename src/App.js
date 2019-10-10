@@ -23,7 +23,7 @@ function App() {
   }, [setTodos])
 
   // Toggle Complete
-  const toggleComplete = (id) => {
+  const toggleTodoComplete = (id) => {
     setTodos(
       todos.map((todo) => {
         if (todo.id === id) {
@@ -73,7 +73,7 @@ function App() {
                 <AddTodo addTodo={addTodo} />
                 <Todos
                   todos={todos}
-                  toggleComplete={toggleComplete}
+                  toggleTodoComplete={toggleTodoComplete}
                   removeTodo={removeTodo}
                 />
               </>

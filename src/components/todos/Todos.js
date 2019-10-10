@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import TodoItem from './TodoItem';
 
-function Todos({ todos, toggleComplete, removeTodo }) {
+function Todos({ todos, toggleTodoComplete, removeTodo }) {
   return (
     <div>
 
@@ -11,7 +11,7 @@ function Todos({ todos, toggleComplete, removeTodo }) {
           <TodoItem
             key={todo.id}
             todo={todo}
-            toggleComplete={toggleComplete}
+            toggleTodoComplete={toggleTodoComplete}
             removeTodo={removeTodo}
           />
         ))}
@@ -23,7 +23,7 @@ function Todos({ todos, toggleComplete, removeTodo }) {
 
 Todos.propTypes = {
   todos: PropTypes.array.isRequired,
-  toggleComplete: PropTypes.func.isRequired,
+  toggleTodoComplete: PropTypes.func.isRequired,
   removeTodo: PropTypes.func.isRequired
 }
 
