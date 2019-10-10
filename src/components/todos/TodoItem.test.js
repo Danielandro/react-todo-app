@@ -24,9 +24,20 @@ function shallowSetup() {
 describe('TodoItem', () => {
   it('renders todo based on passed values', () => {
     const { enzymeWrapper, props } = shallowSetup();
-    const todo = enzymeWrapper.find('div');
-    const todoText = todo.find('p').text();
+    const todo = enzymeWrapper.find('p');
+    const checkbox = todo.find('input[type="checkbox"]')
+    const deleteButton = todo.find('button');
 
-    expect(todoText).toContain(props.todo.title);
+    expect(todo.text()).toContain(props.todo.title);
+    expect(checkbox.length).toBe(1);
+    expect(deleteButton.length).toBe(1);
+  })
+
+  it('calls removeTodo when deleted', () => {
+    const { enzymeWrapper, props } = shallowSetup();
+    const deleteButton = enzymeWrapper.find('button');
+    deleteButton.simulate('click');
+
+    expect(props.removeTodo).toHaveBeenCalledWith(props.todo.id);
   })
 })
