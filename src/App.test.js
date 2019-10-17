@@ -9,4 +9,24 @@ describe('App', () => {
     ReactDOM.render(<App />, div);
     ReactDOM.unmountComponentAtNode(div);
   });
-})
+
+  describe('#toggleTodoComplete', () => {
+    const mockTodos = [
+      {
+        id: 1,
+        title: 'first todo',
+        completed: false
+      },
+      {
+        id: 2,
+        title: 'second todo',
+        completed: false
+      }
+    ]
+
+    it('updates completed status', () => {
+      const enzymeWrapper = shallow(<App />)
+
+    });
+  });
+});
